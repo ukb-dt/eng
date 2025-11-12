@@ -291,8 +291,19 @@ Is this framework something you're developing, or does it inform how you approac
 ## 02
 
 $$
-(E, x) \rightarrow E(t \mid x) + \epsilon \rightarrow dE_x/dt \rightarrow dE_{\bar{x}} \pm \sqrt(|d2E_x/dt2|) \rightarrow \int E_x dt + \epsilon_x t + C_x
+(E, x) \rightarrow E(t \mid x) + \epsilon \rightarrow dE_x/dt \rightarrow dE_{\bar{x}} \pm \sqrt(|d^2E_x/dt^2|) \rightarrow \int E_x dt + \epsilon_x t + C_x
 $$
+
+- Agent
+   - Energy
+   - Mass
+   - Information/Signal
+- Time
+   - Placeholder for flow 
+- Cause, $X$
+   - Forces
+   - Attractors
+   - Governors
 
 ---
 
