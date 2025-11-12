@@ -21,7 +21,7 @@
 ## 1
 # Preface
 
-You stand at the convergence of streams—a confluence where engineering discipline meets clinical wisdom, where mathematical certainty dances with human uncertainty, where the attractor of optimal care meets the governor of prudence.
+You stand at the convergence of [streams](https://ukb-dt.github.io/ds/)—a confluence where engineering discipline meets clinical wisdom, where mathematical certainty dances with human uncertainty, where the attractor of optimal care meets the governor of prudence.
 
 This is not merely another technical manual. What unfolds across these pages represents something far more profound: **the codification of restraint in high-stakes decision-making**.
 
