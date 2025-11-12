@@ -102,7 +102,7 @@ Recommended strategy (robust to rare events & selection bias):
 
 5. Counterfactual estimation:
 
-   * Fit models with a donation indicator and interaction terms: $h(t|x)=h_0(t)\exp(\beta_d \cdot \text{donor} + \beta_x x + \beta_{dx} (\text{donor}\times x))$.
+   * Fit models with a donation indicator and interaction terms: $h(t\mid x)=h_0(t)\exp(\beta_d \cdot \text{donor} + \beta_x x + \beta_{dx} (\text{donor}\times x))$.
    * Predict survival for the same $x$ with donor=1 and donor=0 to get individualized counterfactual curves.
 
 ---
@@ -139,8 +139,8 @@ Three complementary approaches to set the governor:
 
 3. **Adaptive / gain-scheduled:** scale governor gain with (|\ddot{\Delta h}|) and current proximity to an attractor boundary (e.g., baseline lifetime excess risk). Example rule:
 
-   * If $\text{cumExcess}_{30\text{y}} < \alpha$ and $\mid\ddot{\Delta h}| < \tau_1$ → green (no action).
-   * If $\tau_1 \le |\ddot{\Delta h}| < \tau_2$ OR $\text{cumExcess}_{30\text{y}} \in [\alpha,\beta)$ → caution (monitor more frequently).
+   * If $\text{cumExcess}_{30\text{y}} < \alpha$ and $\mid\ddot{\Delta h}\mid < \tau_1$ → green (no action).
+   * If $\tau_1 \le \mid\ddot{\Delta h}\mid < \tau_2$ OR $\text{cumExcess}_{30\text{y}} \in [\alpha,\beta)$ → caution (monitor more frequently).
    * If $\mid\ddot{\Delta h}\mid \ge \tau_2$ OR $\text{cumExcess}_{30\text{y}} \ge \beta$ → governor cut (defer donation / recommend more testing / refer).
 
 Suggested initial values (calibrate to your data):
@@ -810,8 +810,8 @@ I'll interpret and formalize it step by step as a mathematical pipeline, assumin
    Evaluate the rate at the mean state $\bar{x}$ (e.g., expectation $E[x]$ over a prior), then add/subtract an uncertainty term based on the curvature (second time derivative at original x). The $√\mid⋅\mid$ evokes a standard deviation-like bound (e.g., from Taylor expansion error or Hessian approximation in optimization).  
    **Mathematical form:** $∂E/∂t (t, \bar{x}) ± √\mid ∂²E/∂t² (t, x) \mid$.  
    *How to arrive:*  
-      - First, shift: ∂E/∂t $t, \bar{x}) ≈ ∂E/∂t (t, x) + (\bar{x} - x) ⋅ ∂²E/∂t ∂x (t, x)$ (1st-order Taylor in x).  
-      - For the bound, use 2nd-order Taylor remainder: $\mid E(t, \bar{x}) - approx\mid ≤ (1/2) \mid (\bar{x} - x)² ∂²E/∂t²\mid$; take √ for "1σ" interval (common in uncertainty propagation). Absolute value ensures positivity for real-valued flows.  
+      - First, shift: $∂E/∂t t, \bar{x}$ ≈ $∂E/∂t (t, x)$ + $\bar{x} - x$ ⋅ $∂²E/∂t ∂x (t, x)$ (1st-order Taylor in x).  
+      - For the bound, use 2nd-order Taylor remainder: $\mid E(t, \bar{x}) - approx\mid ≤ (1/2) \mid \bar{x} - x)² ∂²E/∂t²\mid$; take √ for "1σ" interval (common in uncertainty propagation). Absolute value ensures positivity for real-valued flows.  
       - Numerically: Compute second deriv via central differences: $∂²E/∂t² ≈ [∂E/∂t (t + Δt, x) - 2 ∂E/∂t (t, x) + ∂E/∂t (t - Δt, x)] / (Δt)²$.  
    *Purpose:* "Disciplines" the flow by averaging (reducing variance) while bounding errors from nonlinearity—key for robust orchestration in uncertain environments (e.g., Monte Carlo flows or ensemble simulations).
 
