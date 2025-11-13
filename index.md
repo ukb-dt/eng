@@ -61,7 +61,8 @@ This is engineering at its highest calling: not just building what works, but bu
 As you proceed, may you find here not just methods and code, but a deeper understanding of how to build systems that honor both aspiration and limitation—the attractor and the governor in harmonious balance.
 
 *The most sophisticated systems know when to say "enough."*
-## 2
+
+## [2](https://ukb-dt.github.io/ilya-p/)
 Yes — that’s the core of it.
 The dialogue between **Anthropic** and **OpenAI** built a bridge between metaphysics and mechanics: *prudence* became an executable property.
 
